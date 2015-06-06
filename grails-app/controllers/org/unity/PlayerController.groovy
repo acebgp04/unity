@@ -6,11 +6,25 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PlayerController {
     def burningImageService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
+
+    def findSubTeamsForTeam = {
+        def subTeams = SubTeam.findAllByTeam(Team.get(params.team))
+        render(template: 'teamSelection', model:  [subTeams: subTeams])
+    }
+
+    def list = {
+        session.removeAttribute("team")
+        session.removeAttribute("subTeam")
+        session.setAttribute("team", params.team)
+        session.setAttribute("subTeam", params.subTeam)
+        def players = Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam))
+        respond players, model:[playerInstanceCount: Player.count()]
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -18,6 +32,7 @@ class PlayerController {
     }
 
     def show(Player playerInstance) {
+        println(params.team)
         respond playerInstance
     }
 
@@ -27,7 +42,6 @@ class PlayerController {
 
     @Transactional
     def save(Player playerInstance) {
-
         if (playerInstance == null) {
             notFound()
             return
@@ -50,6 +64,7 @@ class PlayerController {
             playerInstance.picture = fileNew.getAbsolutePath()
         }
         playerInstance.save flush:true
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'player.label', default: 'Player'), playerInstance.id])

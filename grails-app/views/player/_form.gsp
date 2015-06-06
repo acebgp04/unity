@@ -1,6 +1,7 @@
 <%@ page import="org.unity.Player" %>
 
-
+<g:hiddenField name="team" value="${params.team}" />
+<g:hiddenField name="subTeam" value="${params.subTeam}" />
 
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'firstName', 'error')} required">
 	<label for="firstName">
@@ -218,14 +219,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'team', 'error')} required">
-	<label for="team">
-		<g:message code="player.team.label" default="Team" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="team" name="team.id" from="${org.unity.Team.list()}" optionKey="id" required="" value="${playerInstance?.team?.id}" class="many-to-one"/>
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'sports', 'error')} ">
 	<label for="sports">
@@ -487,4 +480,6 @@
 	<g:textField name="hotelRoomNo" value="${playerInstance?.hotelRoomNo}"/>
 
 </div>
+
+
 

@@ -1,9 +1,9 @@
 package org.unity
 
 class Team {
-
+    transient springSecurityService
     String name
-    static hasMany = [players: Player]
+    static hasMany = [players: Player, subTeams:SubTeam]
 
     String toString() {
         name
@@ -11,4 +11,5 @@ class Team {
     static constraints = {
         name()
     }
+
 }

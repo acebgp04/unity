@@ -17,13 +17,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            pooled = true
-            jmxExport = true
-            driverClassName = "org.h2.Driver"
-            username = "sa"
-            password = ""
-            dbCreate = "create-drop"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            dbCreate = "create"
+            url = "jdbc:postgresql://localhost:5432/unity"
         }
     }
     test {
@@ -34,7 +29,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "create"
+            dbCreate = "update"
             url = "jdbc:postgresql://localhost:5432/unity"
             properties {
                 // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation

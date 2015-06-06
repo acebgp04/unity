@@ -28,7 +28,7 @@ class Player {
     String district
     Date baptismDate
     String country
-    static belongsTo = [team: Team]
+    static belongsTo = [team: Team, subTeam:SubTeam]
     static hasMany = [sports: Category]
 
     String contactAbroadName
