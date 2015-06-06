@@ -34,7 +34,7 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create"
             url = "jdbc:postgresql://localhost:5432/unity"
             properties {
                 // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
