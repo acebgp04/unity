@@ -1,13 +1,16 @@
 package org.unity
 
+import org.springframework.security.access.annotation.Secured
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
+@Secured(['ROLE_ADMIN'])
 class PlayerController {
     def burningImageService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -36,15 +39,17 @@ class PlayerController {
         }
 
         def file = request.getFile('pictureFile')
-        println(">>> "+file.originalFilename)
-        def userDir = new File("C:\\", "/payload/${playerInstance?.team?.name}")
-        userDir.mkdirs()
-        def ext = file.originalFilename.toString().substring(file.originalFilename.toString().lastIndexOf('.'))
-        File fileNew =  new File( userDir, "${playerInstance?.firstName} ${playerInstance?.middleName} ${playerInstance?.lastName} ${playerInstance?.birthDate?.getYear()}${ext}")
-        file.transferTo(fileNew)
-        playerInstance.picture = fileNew.getAbsolutePath()
+        if(file.size != 0) {
+            println(">>> "+file.size)
+            println(">>> "+file)
+            def userDir = new File("C:\\", "/payload/${playerInstance?.team?.name}")
+            userDir.mkdirs()
+            def ext = file?.originalFilename?.toString()?.substring(file?.originalFilename?.toString()?.lastIndexOf('.'))
+            File fileNew =  new File( userDir, "${playerInstance?.firstName} ${playerInstance?.middleName} ${playerInstance?.lastName} ${playerInstance?.birthDate?.getYear()}${ext}")
+            file?.transferTo(fileNew)
+            playerInstance.picture = fileNew.getAbsolutePath()
+        }
         playerInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'player.label', default: 'Player'), playerInstance.id])
@@ -69,9 +74,16 @@ class PlayerController {
             respond playerInstance.errors, view:'edit'
             return
         }
-
+        def file = request.getFile('pictureFile')
+        if(file.size != 0) {
+            def userDir = new File("C:\\", "/payload/${playerInstance?.team?.name}")
+            userDir.mkdirs()
+            def ext = file?.originalFilename?.toString()?.substring(file?.originalFilename?.toString()?.lastIndexOf('.'))
+            File fileNew =  new File( userDir, "${playerInstance?.firstName} ${playerInstance?.middleName} ${playerInstance?.lastName} ${playerInstance?.birthDate?.getYear()}${ext}")
+            file?.transferTo(fileNew)
+            playerInstance.picture = fileNew.getAbsolutePath()
+        }
         playerInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Player.label', default: 'Player'), playerInstance.id])

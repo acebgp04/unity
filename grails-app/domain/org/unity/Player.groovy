@@ -68,7 +68,9 @@ class Player {
     String hotelAddress
     String hotelRoomNo
 
-
+    String toString() {
+        "${firstName} ${middleName} ${lastName}"
+    }
     static constraints = {
         firstName(nullable: false)
         middleName(nullable: false)
@@ -85,10 +87,10 @@ class Player {
         highestEducAttainment(nullable: false)
         picture(blank: true, nullable: true)
 
-        nameOfFather(nullable: false)
-        fatherContactNo(nullable: false)
-        nameOfMother(nullable: false)
-        motherContactNo(nullable: false)
+        nameOfFather(nullable: true)
+        fatherContactNo(nullable: true)
+        nameOfMother(nullable: true)
+        motherContactNo(nullable: true)
 
         kapisanan(nullable: false)
         purokGrupo(nullable: false)
@@ -97,39 +99,39 @@ class Player {
         baptismDate(nullable: false)
         country(nullable: false)
         team(nullable: false)
-        sports(nullable: false)
+        sports(nullable: true)
 
-        contactAbroadName(nullable: false)
-        contactAbroadRel(nullable: false)
-        contactAbroademailAddress(nullable: false)
-        contactAbroadPhone(nullable: false)
-        contactLocalName(nullable: false)
-        contactLocalRel(nullable: false)
-        contactLocalemailAddress(nullable: false)
-        contactLocalPhone(nullable: false)
+        contactAbroadName(nullable: true)
+        contactAbroadRel(nullable: true)
+        contactAbroademailAddress(nullable: true)
+        contactAbroadPhone(nullable: true)
+        contactLocalName(nullable: true)
+        contactLocalRel(nullable: true)
+        contactLocalemailAddress(nullable: true)
+        contactLocalPhone(nullable: true)
 
         guardian(nullable: false)
         guardianRel(nullable: false)
         guardianContactNo(nullable: false)
-        waiver(nullable: false)
+        waiver(nullable: true)
 
-        arrivalAirline(nullable: false)
-        arrivalDate(nullable: false)
-        arrivalAirport(nullable: false)
-        arrivalFlightNo(nullable: false)
-        arrivalBusCompany(nullable: false)
-        arrivalBusNo(nullable: false)
+        arrivalAirline(nullable: true)
+        arrivalDate(nullable: true)
+        arrivalAirport(nullable: true)
+        arrivalFlightNo(nullable: true)
+        arrivalBusCompany(nullable: true)
+        arrivalBusNo(nullable: true)
 
-        departureAirline(nullable: false)
-        departureDate(nullable: false)
-        departureAirport(nullable: false)
-        departureFlightNo(nullable: false)
-        departureBusCompany(nullable: false)
-        departureBusNo(nullable: false)
+        departureAirline(nullable: true)
+        departureDate(nullable: true)
+        departureAirport(nullable: true)
+        departureFlightNo(nullable: true)
+        departureBusCompany(nullable: true)
+        departureBusNo(nullable: true)
 
-        hotel(nullable: false)
-        hotelPhoneNo(nullable: false)
-        hotelAddress(nullable: false)
-        hotelRoomNo(nullable: false)
+        hotel(nullable: true)
+        hotelPhoneNo(nullable: true)
+        hotelAddress(nullable: true)
+        hotelRoomNo(nullable: true)
     }
 }

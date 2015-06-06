@@ -9,5 +9,6 @@ class Team {
         name
     }
     static constraints = {
+        name()
     }
 }

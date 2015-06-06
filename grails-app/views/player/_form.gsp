@@ -124,43 +124,43 @@
 		<g:message code="player.picture.label" default="Picture" />
 		
 	</label>
-    <input id="pictureFile" type="file" name="pictureFile" value="${playerInstance?.picture}"/>
+	<input id="pictureFile" type="file" name="pictureFile" value="${playerInstance?.picture}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'nameOfFather', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'nameOfFather', 'error')} ">
 	<label for="nameOfFather">
 		<g:message code="player.nameOfFather.label" default="Name Of Father" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="nameOfFather" required="" value="${playerInstance?.nameOfFather}"/>
+	<g:textField name="nameOfFather" value="${playerInstance?.nameOfFather}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'fatherContactNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'fatherContactNo', 'error')} ">
 	<label for="fatherContactNo">
 		<g:message code="player.fatherContactNo.label" default="Father Contact No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="fatherContactNo" required="" value="${playerInstance?.fatherContactNo}"/>
+	<g:textField name="fatherContactNo" value="${playerInstance?.fatherContactNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'nameOfMother', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'nameOfMother', 'error')} ">
 	<label for="nameOfMother">
 		<g:message code="player.nameOfMother.label" default="Name Of Mother" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="nameOfMother" required="" value="${playerInstance?.nameOfMother}"/>
+	<g:textField name="nameOfMother" value="${playerInstance?.nameOfMother}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'motherContactNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'motherContactNo', 'error')} ">
 	<label for="motherContactNo">
 		<g:message code="player.motherContactNo.label" default="Mother Contact No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="motherContactNo" required="" value="${playerInstance?.motherContactNo}"/>
+	<g:textField name="motherContactNo" value="${playerInstance?.motherContactNo}"/>
 
 </div>
 
@@ -169,7 +169,7 @@
 		<g:message code="player.kapisanan.label" default="Kapisanan" />
 		<span class="required-indicator">*</span>
 	</label>
-    <g:select name="kapisanan" required="" from="${CFO.values()}" value="${playerInstance?.kapisanan}" optionKey="key" />
+	<g:select name="kapisanan" required="" from="${CFO.values()}" value="${playerInstance?.kapisanan}" optionKey="key" />
 
 </div>
 
@@ -227,84 +227,84 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'sports', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'sports', 'error')} ">
 	<label for="sports">
 		<g:message code="player.sports.label" default="Sports" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:select name="sports" from="${org.unity.Category.list()}" multiple="multiple" optionKey="id" size="5" required="" value="${playerInstance?.sports*.id}" class="many-to-many"/>
+	<g:select name="sports" from="${org.unity.Category.list().sort()}" multiple="multiple" optionKey="id" size="5" value="${playerInstance?.sports*.id}" class="many-to-many"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadName', 'error')} ">
 	<label for="contactAbroadName">
 		<g:message code="player.contactAbroadName.label" default="Contact Abroad Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactAbroadName" required="" value="${playerInstance?.contactAbroadName}"/>
+	<g:textField name="contactAbroadName" value="${playerInstance?.contactAbroadName}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadRel', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadRel', 'error')} ">
 	<label for="contactAbroadRel">
 		<g:message code="player.contactAbroadRel.label" default="Contact Abroad Rel" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactAbroadRel" required="" value="${playerInstance?.contactAbroadRel}"/>
+	<g:textField name="contactAbroadRel" value="${playerInstance?.contactAbroadRel}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroademailAddress', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroademailAddress', 'error')} ">
 	<label for="contactAbroademailAddress">
 		<g:message code="player.contactAbroademailAddress.label" default="Contact Abroademail Address" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactAbroademailAddress" required="" value="${playerInstance?.contactAbroademailAddress}"/>
+	<g:textField name="contactAbroademailAddress" value="${playerInstance?.contactAbroademailAddress}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadPhone', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactAbroadPhone', 'error')} ">
 	<label for="contactAbroadPhone">
 		<g:message code="player.contactAbroadPhone.label" default="Contact Abroad Phone" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactAbroadPhone" required="" value="${playerInstance?.contactAbroadPhone}"/>
+	<g:textField name="contactAbroadPhone" value="${playerInstance?.contactAbroadPhone}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalName', 'error')} ">
 	<label for="contactLocalName">
 		<g:message code="player.contactLocalName.label" default="Contact Local Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactLocalName" required="" value="${playerInstance?.contactLocalName}"/>
+	<g:textField name="contactLocalName" value="${playerInstance?.contactLocalName}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalRel', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalRel', 'error')} ">
 	<label for="contactLocalRel">
 		<g:message code="player.contactLocalRel.label" default="Contact Local Rel" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactLocalRel" required="" value="${playerInstance?.contactLocalRel}"/>
+	<g:textField name="contactLocalRel" value="${playerInstance?.contactLocalRel}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalemailAddress', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalemailAddress', 'error')} ">
 	<label for="contactLocalemailAddress">
 		<g:message code="player.contactLocalemailAddress.label" default="Contact Localemail Address" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactLocalemailAddress" required="" value="${playerInstance?.contactLocalemailAddress}"/>
+	<g:textField name="contactLocalemailAddress" value="${playerInstance?.contactLocalemailAddress}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalPhone', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'contactLocalPhone', 'error')} ">
 	<label for="contactLocalPhone">
 		<g:message code="player.contactLocalPhone.label" default="Contact Local Phone" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="contactLocalPhone" required="" value="${playerInstance?.contactLocalPhone}"/>
+	<g:textField name="contactLocalPhone" value="${playerInstance?.contactLocalPhone}"/>
 
 </div>
 
@@ -335,156 +335,156 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'waiver', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'waiver', 'error')} ">
 	<label for="waiver">
 		<g:message code="player.waiver.label" default="Waiver" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="waiver" required="" value="${playerInstance?.waiver}"/>
+	<g:textField name="waiver" value="${playerInstance?.waiver}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalAirline', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalAirline', 'error')} ">
 	<label for="arrivalAirline">
 		<g:message code="player.arrivalAirline.label" default="Arrival Airline" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="arrivalAirline" required="" value="${playerInstance?.arrivalAirline}"/>
+	<g:textField name="arrivalAirline" value="${playerInstance?.arrivalAirline}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalDate', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalDate', 'error')} ">
 	<label for="arrivalDate">
 		<g:message code="player.arrivalDate.label" default="Arrival Date" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:datePicker name="arrivalDate" precision="day"  value="${playerInstance?.arrivalDate}"  />
+	<g:datePicker name="arrivalDate" precision="day"  value="${playerInstance?.arrivalDate}" default="none" noSelection="['': '']" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalAirport', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalAirport', 'error')} ">
 	<label for="arrivalAirport">
 		<g:message code="player.arrivalAirport.label" default="Arrival Airport" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="arrivalAirport" required="" value="${playerInstance?.arrivalAirport}"/>
+	<g:textField name="arrivalAirport" value="${playerInstance?.arrivalAirport}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalFlightNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalFlightNo', 'error')} ">
 	<label for="arrivalFlightNo">
 		<g:message code="player.arrivalFlightNo.label" default="Arrival Flight No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="arrivalFlightNo" required="" value="${playerInstance?.arrivalFlightNo}"/>
+	<g:textField name="arrivalFlightNo" value="${playerInstance?.arrivalFlightNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalBusCompany', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalBusCompany', 'error')} ">
 	<label for="arrivalBusCompany">
 		<g:message code="player.arrivalBusCompany.label" default="Arrival Bus Company" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="arrivalBusCompany" required="" value="${playerInstance?.arrivalBusCompany}"/>
+	<g:textField name="arrivalBusCompany" value="${playerInstance?.arrivalBusCompany}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalBusNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'arrivalBusNo', 'error')} ">
 	<label for="arrivalBusNo">
 		<g:message code="player.arrivalBusNo.label" default="Arrival Bus No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="arrivalBusNo" required="" value="${playerInstance?.arrivalBusNo}"/>
+	<g:textField name="arrivalBusNo" value="${playerInstance?.arrivalBusNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureAirline', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureAirline', 'error')} ">
 	<label for="departureAirline">
 		<g:message code="player.departureAirline.label" default="Departure Airline" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="departureAirline" required="" value="${playerInstance?.departureAirline}"/>
+	<g:textField name="departureAirline" value="${playerInstance?.departureAirline}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureDate', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureDate', 'error')} ">
 	<label for="departureDate">
 		<g:message code="player.departureDate.label" default="Departure Date" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:datePicker name="departureDate" precision="day"  value="${playerInstance?.departureDate}"  />
+	<g:datePicker name="departureDate" precision="day"  value="${playerInstance?.departureDate}" default="none" noSelection="['': '']" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureAirport', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureAirport', 'error')} ">
 	<label for="departureAirport">
 		<g:message code="player.departureAirport.label" default="Departure Airport" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="departureAirport" required="" value="${playerInstance?.departureAirport}"/>
+	<g:textField name="departureAirport" value="${playerInstance?.departureAirport}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureFlightNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureFlightNo', 'error')} ">
 	<label for="departureFlightNo">
 		<g:message code="player.departureFlightNo.label" default="Departure Flight No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="departureFlightNo" required="" value="${playerInstance?.departureFlightNo}"/>
+	<g:textField name="departureFlightNo" value="${playerInstance?.departureFlightNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureBusCompany', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureBusCompany', 'error')} ">
 	<label for="departureBusCompany">
 		<g:message code="player.departureBusCompany.label" default="Departure Bus Company" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="departureBusCompany" required="" value="${playerInstance?.departureBusCompany}"/>
+	<g:textField name="departureBusCompany" value="${playerInstance?.departureBusCompany}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureBusNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'departureBusNo', 'error')} ">
 	<label for="departureBusNo">
 		<g:message code="player.departureBusNo.label" default="Departure Bus No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="departureBusNo" required="" value="${playerInstance?.departureBusNo}"/>
+	<g:textField name="departureBusNo" value="${playerInstance?.departureBusNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotel', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotel', 'error')} ">
 	<label for="hotel">
 		<g:message code="player.hotel.label" default="Hotel" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="hotel" required="" value="${playerInstance?.hotel}"/>
+	<g:textField name="hotel" value="${playerInstance?.hotel}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelPhoneNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelPhoneNo', 'error')} ">
 	<label for="hotelPhoneNo">
 		<g:message code="player.hotelPhoneNo.label" default="Hotel Phone No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="hotelPhoneNo" required="" value="${playerInstance?.hotelPhoneNo}"/>
+	<g:textField name="hotelPhoneNo" value="${playerInstance?.hotelPhoneNo}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelAddress', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelAddress', 'error')} ">
 	<label for="hotelAddress">
 		<g:message code="player.hotelAddress.label" default="Hotel Address" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="hotelAddress" required="" value="${playerInstance?.hotelAddress}"/>
+	<g:textField name="hotelAddress" value="${playerInstance?.hotelAddress}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelRoomNo', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'hotelRoomNo', 'error')} ">
 	<label for="hotelRoomNo">
 		<g:message code="player.hotelRoomNo.label" default="Hotel Room No" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="hotelRoomNo" required="" value="${playerInstance?.hotelRoomNo}"/>
+	<g:textField name="hotelRoomNo" value="${playerInstance?.hotelRoomNo}"/>
 
 </div>
 
