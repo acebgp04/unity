@@ -95,6 +95,9 @@ class UserController {
             notFound()
             return
         }
+        UserRole.findAllByUser(userInstance).each {
+            it.delete(flush: true)
+        }
 
         userInstance.delete flush:true
 
