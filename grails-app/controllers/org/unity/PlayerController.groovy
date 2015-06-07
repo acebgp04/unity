@@ -17,6 +17,11 @@ class PlayerController {
         render(template: 'teamSelection', model:  [subTeams: subTeams])
     }
 
+    def findCategoriesBySport = {
+        def categories = Category.findAllBySport(Sport.get(params.sport));
+        render(template: 'categories', model:  [categories: categories])
+    }
+
     def list = {
         session.removeAttribute("team")
         session.removeAttribute("subTeam")
@@ -75,11 +80,13 @@ class PlayerController {
     }
 
     def edit(Player playerInstance) {
+        println(playerInstance.sports)
         respond playerInstance
     }
 
     @Transactional
     def update(Player playerInstance) {
+        println(playerInstance?.sports)
         if (playerInstance == null) {
             notFound()
             return

@@ -219,13 +219,23 @@
 
 </div>
 
+<div class="fieldcontain  required">
+	<span id="name-label" class="property-label">Sport</span>&nbsp;
+	<g:select required="required" name="sport" from="${org.unity.Sport.list()}" optionKey="id" optionValue="name"
+			  noSelection="['':'Choose Sport']"
+			  onchange="${remoteFunction (
+					  controller: 'Player',
+					  action: 'findCategoriesBySport',
+					  params: '\'sport=\' + this.value',
+					  update: 'sports'
+			  )}" />
 
+</div>
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'sports', 'error')} ">
-	<label for="sports">
-		<g:message code="player.sports.label" default="Sports" />
-		
-	</label>
-	<g:select name="sports" from="${org.unity.Category.list().sort()}" multiple="multiple" optionKey="id" size="5" value="${playerInstance?.sports*.id}" class="many-to-many"/>
+
+	<span id="name-label" class="property-label">Categories</span> &nbsp;
+
+	<g:select required="required" name="sports" from="${org.unity.Category.list().sort()}" noSelection="['':'Choose Category']" optionKey="id" value="${playerInstance?.sports*.id}" />
 
 </div>
 
