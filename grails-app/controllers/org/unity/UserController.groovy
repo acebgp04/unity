@@ -46,7 +46,8 @@ class UserController {
         userInstance.save flush:true
 
         println(params.roles)
-        params.roles.each{ role ->
+        List roles = params.list('roles')
+        roles.each{ role ->
             println(role)
             UserRole.create userInstance, Role.findByAuthority(role), true
         }

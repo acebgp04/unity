@@ -35,7 +35,7 @@
 		<g:message code="player.gender.label" default="Gender" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="gender" required="" value="${playerInstance?.gender}"/>
+	<g:select name="gender" from="['Male', 'Female']" value="${playerInstance?.gender}" />
 
 </div>
 
@@ -215,7 +215,7 @@
 		<g:message code="player.country.label" default="Country" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="country" required="" value="${playerInstance?.country}"/>
+	<g:countrySelect name="country" required="" value="${playerInstance?.country}"/>
 
 </div>
 
