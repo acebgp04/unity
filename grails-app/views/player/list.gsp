@@ -24,17 +24,17 @@
         <thead>
         <tr>
 
-            <g:sortableColumn property="firstName" title="${message(code: 'player.firstName.label', default: 'First Name')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="firstName" title="${message(code: 'player.firstName.label', default: 'First Name')}" />
 
-            <g:sortableColumn property="middleName" title="${message(code: 'player.middleName.label', default: 'Middle Name')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="middleName" title="${message(code: 'player.middleName.label', default: 'Middle Name')}" />
 
-            <g:sortableColumn property="lastName" title="${message(code: 'player.lastName.label', default: 'Last Name')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="lastName" title="${message(code: 'player.lastName.label', default: 'Last Name')}" />
 
-            <g:sortableColumn property="country" title="${message(code: 'player.country.label', default: 'Country')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="country" title="${message(code: 'player.country.label', default: 'Country')}" />
 
-            <g:sortableColumn property="emailAddress" title="${message(code: 'player.emailAddress.label', default: 'Email Address')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="emailAddress" title="${message(code: 'player.emailAddress.label', default: 'Email Address')}" />
 
-            <g:sortableColumn property="birthDate" title="${message(code: 'player.birthDate.label', default: 'Birth Date')}" />
+            <g:sortableColumn  params="[team:params.team, subTeam:params.subTeam]" property="birthDate" title="${message(code: 'player.birthDate.label', default: 'Birth Date')}" />
 
         </tr>
         </thead>

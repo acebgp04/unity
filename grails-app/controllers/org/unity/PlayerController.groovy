@@ -27,7 +27,7 @@ class PlayerController {
         session.removeAttribute("subTeam")
         session.setAttribute("team", params.team)
         session.setAttribute("subTeam", params.subTeam)
-        def players = Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam), [max:params.max?:10, offset: params.offset?:0])
+        def players = Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam), [max:params.max?:10, offset: params.offset?:0, sort:params.sort, order:params.order?:'asc'])
         respond players, model:[playerInstanceCount: Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam)).size()]
     }
 
