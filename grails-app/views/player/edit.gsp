@@ -383,9 +383,9 @@
 					<div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'waiver', 'error')} ">
 						<label for="waiver">
 							<g:message code="player.waiver.label" default="Waiver" />
-
+                            <span class="required-indicator">*</span>
 						</label>
-						<g:textField name="waiver" value="${playerInstance?.waiver}"/>
+                        <g:checkBox name="waiver" required="" value="${playerInstance?.waiver}" />
 
 					</div>
 

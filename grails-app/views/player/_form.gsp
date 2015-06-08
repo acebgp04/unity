@@ -1,7 +1,7 @@
 <%@ page import="org.unity.Player" %>
 
-<g:hiddenField name="team" value="${params.team}" />
-<g:hiddenField name="subTeam" value="${params.subTeam}" />
+<g:hiddenField name="team" value="${session.getAttribute('team')}" />
+<g:hiddenField name="subTeam" value="${session.getAttribute('subTeam')}" />
 
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'firstName', 'error')} required">
 	<label for="firstName">
@@ -341,9 +341,9 @@
 <div class="fieldcontain ${hasErrors(bean: playerInstance, field: 'waiver', 'error')} ">
 	<label for="waiver">
 		<g:message code="player.waiver.label" default="Waiver" />
-		
+        <span class="required-indicator">*</span>
 	</label>
-	<g:textField name="waiver" value="${playerInstance?.waiver}"/>
+    <g:checkBox name="waiver" required="" value="${playerInstance?.waiver}" />
 
 </div>
 
