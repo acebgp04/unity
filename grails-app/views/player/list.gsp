@@ -59,7 +59,7 @@
         </tbody>
     </table>
     <div class="pagination">
-        <g:paginate total="${playerInstanceCount ?: 0}" />
+        <g:paginate total="${playerInstanceCount ?: 0}" params="[team:session.getAttribute('team'), subTeam:session.getAttribute('subTeam')]" />
     </div>
 </div>
 </body>

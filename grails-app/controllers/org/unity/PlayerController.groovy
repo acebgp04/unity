@@ -27,8 +27,8 @@ class PlayerController {
         session.removeAttribute("subTeam")
         session.setAttribute("team", params.team)
         session.setAttribute("subTeam", params.subTeam)
-        def players = Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam))
-        respond players, model:[playerInstanceCount: Player.count()]
+        def players = Player.findAllByTeamAndSubTeam(Team.get(params.team), SubTeam.get(params.subTeam), [max:params.max, offset: params.offset])
+        respond players, model:[playerInstanceCount: players.size()]
     }
 
     def index(Integer max) {
@@ -124,11 +124,11 @@ class PlayerController {
         }
         String path = playerInstance?.getPicture()
         playerInstance.delete flush:true
-        new File(path).delete()
+        path == null ?:new File(path)?.delete()
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Player.label', default: 'Player'), playerInstance.id])
-                redirect action:"index", method:"GET"
+                redirect action:"list", params: [team:session.getAttribute('team'), subTeam: session.getAttribute('subTeam')], method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }

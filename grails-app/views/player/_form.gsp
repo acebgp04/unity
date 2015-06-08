@@ -215,7 +215,7 @@
 		<g:message code="player.country.label" default="Country" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:countrySelect name="country" required="" value="${playerInstance?.country}"/>
+	<g:countrySelect name="country" required="" noSelection="['':'Choose Country']" value="${playerInstance?.country}"/>
 
 </div>
 
