@@ -6,6 +6,36 @@
     <meta name="layout" content="main">
     <g:set var="entityName" value="${message(code: 'player.label', default: 'Player')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $("#comauto").autocomplete({
+                source: function(request, response){
+                    $.ajax({
+                        url: "/unitygames/player/complist", // remote datasource
+                        data: request,
+                        success: function(data){
+                            response(data); // set the response
+                        },
+                        error: function(){ // handle server errors
+                            $.jGrowl("Unable to retrieve Companies", {
+                                theme: 'ui-state-error ui-corner-all'
+                            });
+                        }
+                    });
+                },
+                minLength: 2, // triggered only after minimum 2 characters have been entered.
+                select: function(event, ui) { // event handler when user selects a company from the list.
+                    $("#player\\.id").val(ui.item.id); // update the hidden field.
+                    $("#empId").val(ui.item.nasSymbol + "-") // populate the employee field with the nasdaq symbol.
+                    if(ui.item.id != 0)
+                    location.href='/unitygames/player/show/'+ui.item.id;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <a href="#list-player" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -15,6 +45,8 @@
         <li><g:link class="create" params="[team:params.team, subTeam:params.subTeam]" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
         <li><a>Players Count: ${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.players?.size()}</a></li>
         <li><a>Total Players Count: ${org.unity.Player.count}</a></li>
+        <li><g:hiddenField name="player.id"></g:hiddenField>
+            <g:textField name="comauto" style="width: 300px;"> </g:textField></li>
     </ul>
 </div>
 <div id="list-player" class="content scaffold-list" role="main">

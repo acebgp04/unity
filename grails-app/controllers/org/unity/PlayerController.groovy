@@ -1,5 +1,6 @@
 package org.unity
 
+import grails.converters.JSON
 import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
@@ -9,9 +10,13 @@ import grails.transaction.Transactional
 @Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PlayerController {
     def burningImageService
+    def autoCompleteService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
-
+    def complist = {
+        println("###########")
+        render autoCompleteService.complist(params) as JSON
+    }
     def findSubTeamsForTeam = {
         def subTeams = SubTeam.findAllByTeam(Team.get(params.team))
         render(template: 'teamSelection', model:  [subTeams: subTeams])
