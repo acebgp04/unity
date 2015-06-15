@@ -14,19 +14,13 @@ class AutoCompleteService {
                 ilike("firstName", "%${params.term}%")
                 ilike("lastName", "%${params.term}%")
             }
-
-            and {
-                if(params.teamID) eq("team", Team.get(params.teamID))
-                if(params.subTeamID) eq("subTeam", SubTeam.get(params.subTeamID))
-            }
-
         } // execute  to the get the list of companies
         println(clist)
         def companySelectList = [] // to add each company details
         clist.each { Player player ->
             def companyMap = [:] // add to map. jQuery autocomplete expects the JSON object to be with id/label/value.
             companyMap.put("id", player.id)
-            companyMap.put("label", "${player.firstName}  ${player.lastName} : ${player.sports[0]}")
+            companyMap.put("label", "${player.firstName}  ${player.lastName} > ${player?.subTeam} > ${player.sports[0]} ")
             companyMap.put("value", player.firstName)
             companyMap.put("nasSymbol", player.firstName) // will use this to pre-populate the Emp Id
             companySelectList.add(companyMap) // add to the arraylist
