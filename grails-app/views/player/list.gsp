@@ -45,12 +45,15 @@
         <li><g:link class="create" params="[team:params.team, subTeam:params.subTeam]" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
         <li><a>${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.name} Players: ${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.players?.size()}</a></li>
         <li><a>Total Players Count: ${org.unity.Player.count}</a></li>
-        <li><g:hiddenField name="player.id"></g:hiddenField>
-            <g:textField name="comauto" style="width: 160px;"> </g:textField></li>
     </ul>
 </div>
 <div id="list-player" class="content scaffold-list" role="main">
     <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+    <div class="nav" role="navigation">
+
+        <g:hiddenField name="player.id"></g:hiddenField>
+        <ul><li>Search: <g:textField name="comauto" style="width: 160px;"> </g:textField><br /></li></ul>
+    </div>
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
