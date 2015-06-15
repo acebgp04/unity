@@ -14,7 +14,6 @@ class PlayerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
     def complist = {
-        println("###########")
         render autoCompleteService.complist(params) as JSON
     }
     def findSubTeamsForTeam = {

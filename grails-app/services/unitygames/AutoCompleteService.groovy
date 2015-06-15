@@ -2,13 +2,23 @@ package unitygames
 
 import grails.transaction.Transactional
 import org.unity.Player
+import org.unity.SubTeam
+import org.unity.Team
 
 @Transactional
 class AutoCompleteService {
 
     def complist(params){
         def clist = Player.createCriteria().list{
-            ilike("firstName", "%${params.term}%")
+            or {
+                ilike("firstName", "%${params.term}%")
+                ilike("lastName", "%${params.term}%")
+            }
+
+            and {
+                if(params.teamID) eq("team", Team.get(params.teamID))
+                if(params.subTeamID) eq("subTeam", SubTeam.get(params.subTeamID))
+            }
 
         } // execute  to the get the list of companies
         println(clist)
@@ -16,7 +26,7 @@ class AutoCompleteService {
         clist.each { Player player ->
             def companyMap = [:] // add to map. jQuery autocomplete expects the JSON object to be with id/label/value.
             companyMap.put("id", player.id)
-            companyMap.put("label", player.firstName)
+            companyMap.put("label", "${player.firstName}  ${player.lastName}")
             companyMap.put("value", player.firstName)
             companyMap.put("nasSymbol", player.firstName) // will use this to pre-populate the Emp Id
             companySelectList.add(companyMap) // add to the arraylist

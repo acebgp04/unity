@@ -14,7 +14,7 @@
             $("#comauto").autocomplete({
                 source: function(request, response){
                     $.ajax({
-                        url: "/unitygames/player/complist", // remote datasource
+                        url: "/unitygames/player/complist?teamID=${session.getAttribute('team')}&subTeamID=${session.getAttribute('subTeam')}", // remote datasource
                         data: request,
                         success: function(data){
                             response(data); // set the response
@@ -43,10 +43,10 @@
     <ul>
         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
         <li><g:link class="create" params="[team:params.team, subTeam:params.subTeam]" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-        <li><a>Players Count: ${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.players?.size()}</a></li>
+        <li><a>${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.name} Players: ${org.unity.SubTeam.get(session.getAttribute('subTeam'))?.players?.size()}</a></li>
         <li><a>Total Players Count: ${org.unity.Player.count}</a></li>
         <li><g:hiddenField name="player.id"></g:hiddenField>
-            <g:textField name="comauto" style="width: 300px;"> </g:textField></li>
+            <g:textField name="comauto" style="width: 160px;"> </g:textField></li>
     </ul>
 </div>
 <div id="list-player" class="content scaffold-list" role="main">

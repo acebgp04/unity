@@ -1,5 +1,6 @@
 package org.unity
 
+import org.apache.poi.ss.usermodel.Workbook
 import org.springframework.security.access.annotation.Secured
 import pl.touk.excel.export.XlsxExporter
 
@@ -13,5 +14,9 @@ class ReportingController {
         new XlsxExporter('D:\\Report.xlsx').
                 add(players, withProperties).
                 save()
+    }
+
+    def upload() {
+        Workbook workbook;
     }
 }
